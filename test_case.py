@@ -1,23 +1,15 @@
 from solution import even_generator
+import unittest
 
 
 
 # Write a test class for the even_generator function that prints "Test Passed" if the function returns the expected output and "Test Failed" if it does not.
 
-class TestEvenGenerator:
+class TestEvenGenerator(unittest.TestCase):
     def test_even_generator(self):
-        
-        try:
-            assert list(even_generator()) == [2, 4, 6, 8, 10, 12, 14, 16, 18, 20] # We are converting the generator object to a list and comparing it with the expected output using the assert statement
-            return "Test Passed"
-        
-        except AssertionError: # If the assert statement fails, then the AssertionError is raised
-            return "Test Failed"
-        
-        
+            
+        self.assertEqual (list(even_generator()),[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]) # We are converting the generator object to a list and comparing it with the expected output using the assert statement
 
-# Create an instance of the test class
-test = TestEvenGenerator()
 
-# Call the test method and print the output
-print(test.test_even_generator())
+if __name__ == '__main__':
+    unittest.main()
